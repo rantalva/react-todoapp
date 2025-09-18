@@ -1,11 +1,8 @@
 import '../App.css'
 import { useState } from 'react';
+import type { Todo } from '../types';
+import TodoTable from './TodoTableComponent';
 
-type Todo = {
-    description: string;
-    priority: 'low'|'medium'|'high';
-
-}
 export default function TodoList() {
 
     const [todo, setTodo] = useState<Todo>({description: '', priority: 'low'}) // here we set one todo
@@ -15,8 +12,12 @@ export default function TodoList() {
         const desc = todo.description ? setTodos([todo, ...todos]) : alert("Description cannot be empty!") // created new constant so there is always something to return :D
         setTodo({...todo, description: ""}) // clears the input placeholder, sets todo description to empty
         return desc
-    }
 
+    }
+    const handleDelete = (indexToDelete: number) => {
+            setTodos(todos.filter((_, index) => index !== indexToDelete));
+    }    
+    
     return(
         <>
         <h3>My todos</h3>
@@ -34,23 +35,7 @@ export default function TodoList() {
             <option value="high">High</option>
         </select>
         <button onClick={addTodo}>Add todo</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Priority</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {todos.map((todo, index) => (
-                    <tr key={index}>
-                        <td>{todo.description}</td>
-                        <td>{todo.priority}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        <TodoTable todos={todos} handleDelete={handleDelete} />
         </>
     );
 }
