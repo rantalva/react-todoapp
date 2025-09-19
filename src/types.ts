@@ -1,4 +1,5 @@
 export type Todo = {
+    id: string,
     description: string;
     priority: 'low'|'medium'|'high';
 }

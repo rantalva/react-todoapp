@@ -1,8 +1,18 @@
 import type { TodoTableProps } from "../types";
+import { Button, Stack } from '@mui/material';
 
 export default function TodoTable(props: TodoTableProps) {
+        // Define columns
+
     return(
         <>
+        <Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+        >
+        <div>
         <table>
             <thead>
                 <tr>
@@ -17,12 +27,20 @@ export default function TodoTable(props: TodoTableProps) {
                         <td>{todo.description}</td>
                         <td>{todo.priority}</td>
                         <td>
-                            <button onClick={() => props.handleDelete(index)}>Delete</button>
+                            <Button 
+                            variant="contained"
+                            size="small"
+                            color="error"
+                            onClick={() => props.handleDelete(index)}>
+                                Delete
+                            </Button>
                         </td>
                     </tr>
                 ))}
             </tbody>
         </table>
+        </div>
+        </Stack>
         </>
     );
 }
