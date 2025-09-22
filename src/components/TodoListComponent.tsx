@@ -21,8 +21,8 @@ export default function TodoList() {
     }
   };
 
-    const handleDelete = (indexToDelete: number) => {
-            setTodos(todos.filter((_, index) => index !== indexToDelete));
+    const handleDelete = (id: string) => {
+            setTodos(todos.filter(todo => id !== todo.id));
     }    
     
     return(
