@@ -1,19 +1,17 @@
-import TodoListComponent from './components/TodoListComponent'
-import Container from '@mui/material/Container'
-import { CssBaseline, AppBar, Toolbar, Typography } from '@mui/material'
+import {Link, Outlet} from 'react-router'
+import HeaderComponent from './components/HeaderComponent'
+
 function App() {
 
   return (
     <>
-    <Container maxWidth='x1'>
-      <CssBaseline />
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography variant='h6'>My todos</Typography>
-        </Toolbar>
-      </AppBar>
-      <TodoListComponent />
-    </Container>
+    <HeaderComponent />
+    <nav>
+      <Link to={"/"}>Todo app</Link>
+      <Link to={"/about"}>About me</Link>
+      <Link to={"/nasa"}>Nasa</Link>
+    </nav>
+    <Outlet />
     </>
   )
 }
