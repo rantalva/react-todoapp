@@ -27,7 +27,6 @@ export default function TodoList() {
     
     return(
         <>
-        <h3>My todos</h3>
         <Stack
             mt={2}
             direction="row"
