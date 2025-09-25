@@ -6,6 +6,7 @@ import About from './components/AboutComponent.tsx';
 import RoutingError from './components/RoutingErrorComponent.tsx';
 import TodoListComponent from './components/TodoListComponent'
 import NasaFetch from './components/NasaFetchComponent.tsx';
+import UserList from './components/UserListComponent.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "nasa",
         element: <NasaFetch />
+      },
+      {
+        path: "users",
+        element: <UserList />
       }
     ]
   }
