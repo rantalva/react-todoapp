@@ -1,14 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { RouterProvider, createHashRouter } from 'react-router';
 import About from './components/AboutComponent.tsx';
 import RoutingError from './components/RoutingErrorComponent.tsx';
 import TodoListComponent from './components/TodoListComponent'
 import NasaFetch from './components/NasaFetchComponent.tsx';
 import UserList from './components/UserListComponent.tsx';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -32,7 +32,9 @@ const router = createBrowserRouter([
       }
     ]
   }
-])
+], {
+  basename: import.meta.env.BASE_URL // for releasing
+})
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
