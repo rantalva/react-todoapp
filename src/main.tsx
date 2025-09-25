@@ -32,9 +32,7 @@ const router = createHashRouter([
       }
     ]
   }
-], {
-  basename: import.meta.env.BASE_URL // for releasing
-})
+])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
